@@ -1,14 +1,15 @@
 {
   "name": "quoridorn-server",
-  "version": "1.0.0b1",
+  "version": "0.0.1",
   "description": "Application server of the Quoridorn.",
   "main": "index.js",
   "scripts": {
     "build": "tsc -t ES5 && cpx -C src/interoperability.yaml dist",
-    "node-server": "node dist/server.js",
+    "node-server": "node --es-module-specifier-resolution=node dist/server.js",
     "server": "npx ts-node src/server.ts",
     "build-run": "tsc -t ES5 && cpx -C src/interoperability.yaml dist; node dist/server.js",
-    "minio-start": "minio server --address localhost:9000 /minio"
+    "minio-start": "minio server --address localhost:9000 /minio",
+    "version-up-server-lib": "ncu -u quoridorn-server-lib"
   },
   "repository": {
     "type": "git",
@@ -22,40 +23,8 @@
   },
   "homepage": "https://github.com/HillTopTRPG/quoridorn-server#readme",
   "dependencies": {
-    "@types/archiver": "^5.1.0",
-    "@types/express": "^4.17.12",
-    "@types/fs-extra": "^9.0.11",
-    "@types/minio": "^7.0.7",
-    "@types/mongodb": "^3.6.18",
-    "@types/multer": "^1.4.5",
-    "@types/node-fetch": "^2.5.10",
-    "@types/socket.io-client": "^1.4.36",
-    "@types/uuid": "^8.3.0",
-    "@types/yaml": "^1.9.6",
-    "archiver": "^5.3.0",
-    "argon2": "^0.28.2",
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "fs-extra": "^10.0.0",
-    "g": "^2.0.1",
-    "grpc": "^1.24.3",
-    "log4js": "^6.3.0",
-    "match-all": "^1.2.6",
-    "minio": "^7.0.18",
-    "moment": "^2.29.1",
-    "mongodb": "^3.6.9",
-    "multer": "^1.4.2",
-    "nekostore": "^0.6.0",
-    "node-gyp": "^8.1.0",
-    "node-zip": "^1.1.1",
-    "s": "^1.0.0",
-    "socket.io": "^4.1.2",
-    "typescript": "~4.3.3",
-    "uuid": "^8.3.2",
-    "yaml": "^1.10.2"
+    "quoridorn-server-lib": "0.0.16",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "cpx": "^1.5.0"
