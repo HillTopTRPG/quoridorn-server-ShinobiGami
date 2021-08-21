@@ -3,6 +3,8 @@
 
 .env
 
+package-lock.json
+
 /config/server.yaml
 /config/storage.yaml
 /config/minio.yaml
