@@ -9,7 +9,7 @@
     "server": "npx ts-node src/server.ts",
     "build-run": "tsc -t ES5 && cpx -C src/interoperability.yaml dist; node dist/server.js",
     "minio-start": "minio server --address localhost:9000 /minio",
-    "version-up-server-lib": "kill -9 $(lsof -t -i:{9000}) & ncu && ncu -u quoridorn-server-lib && npm install && npm run build && npm run node-server"
+    "version-up-server-lib": "kill -9 $(lsof -t -i:8000) & ncu && ncu -u quoridorn-server-lib && npm install && npm run build && npm run node-server"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/HillTopTRPG/quoridorn-server#readme",
   "dependencies": {
-    "quoridorn-server-lib": "0.0.47",
+    "quoridorn-server-lib": "0.0.64",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
