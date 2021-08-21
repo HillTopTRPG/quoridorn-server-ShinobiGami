@@ -1,15 +1,15 @@
 {
   "name": "quoridorn-server",
-  "version": "1.0.0a59",
+  "version": "0.0.1",
   "description": "Application server of the Quoridorn.",
   "main": "index.js",
   "scripts": {
     "build": "tsc -t ES5 && cpx -C src/interoperability.yaml dist",
-    "node-server": "node dist/server.js",
+    "node-server": "node --es-module-specifier-resolution=node dist/server.js",
     "server": "npx ts-node src/server.ts",
-    "test-server": "npx ts-node src/nekostore_test/test_server.ts",
-    "test-client": "npx ts-node src/nekostore_test/test_client.ts",
-    "node-server-test": "node dist/nekostore_test/test_server.js"
+    "build-run": "tsc -t ES5 && cpx -C src/interoperability.yaml dist; node dist/server.js",
+    "minio-start": "minio server --address localhost:9000 /minio",
+    "version-up-server-lib": "kill -9 $(lsof -t -i:8000) & ncu && ncu -u quoridorn-server-lib && npm install && npm run build && npm run node-server"
   },
   "repository": {
     "type": "git",
@@ -23,36 +23,11 @@
   },
   "homepage": "https://github.com/HillTopTRPG/quoridorn-server#readme",
   "dependencies": {
-    "@types/express": "^4.17.7",
-    "@types/minio": "^7.0.5",
-    "@types/mongodb": "^3.3.14",
-    "@types/node-fetch": "^2.5.4",
-    "@types/socket.io-client": "^1.4.32",
-    "@types/uuid": "^3.4.5",
-    "@types/yaml": "^1.2.0",
-    "argon2": "^0.25.0",
-    "bcrypt": "^5.0.0",
-    "body-parser": "^1.19.0",
-    "co": "^4.6.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "g": "^2.0.1",
-    "grpc": "^1.24.3",
-    "log4js": "^6.1.0",
-    "match-all": "^1.2.6",
-    "minio": "^7.0.15",
-    "moment": "^2.24.0",
-    "mongodb": "^3.3.2",
-    "nekostore": "^0.6.0",
-    "node-gyp": "^7.1.0",
-    "s": "^1.0.0",
-    "socket.io": "^2.3.0",
-    "typescript": "^3.6.4",
-    "uuid": "^3.3.3",
-    "yaml": "^1.7.1"
+    "quoridorn-server-lib": "0.0.64",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "rimraf": "^3.0.2"
   }
 }

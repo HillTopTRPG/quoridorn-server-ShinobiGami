@@ -3,8 +3,11 @@
 
 .env
 
+package-lock.json
+
 /config/server.yaml
 /config/storage.yaml
+/config/minio.yaml
 /config/log4js_setting.json
 
 /message/message.yaml
