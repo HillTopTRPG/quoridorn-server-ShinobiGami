@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/HillTopTRPG/quoridorn-server#readme",
   "dependencies": {
-    "quoridorn-server-lib": "0.0.64",
+    "quoridorn-server-lib": "0.0.71",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
