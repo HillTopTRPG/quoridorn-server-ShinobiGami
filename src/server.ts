@@ -5,7 +5,7 @@ import bootUp, {
   InsertFunc,
   UpdateFunc,
   DeleteFunc,
-  SocketApiFunc,
+  SocketApiResistInfo,
   readYaml,
   getTargetClient
 } from "quoridorn-server-lib";
@@ -29,7 +29,7 @@ async function main(): Promise<void> {
       new Map<string, InsertFunc>(),
       new Map<string, DeleteFunc>(),
       new Map<string, UpdateFunc>(),
-      new Map<string, SocketApiFunc>(),
+      new Map<string, SocketApiResistInfo>(),
       []
     );
   } catch (err) {

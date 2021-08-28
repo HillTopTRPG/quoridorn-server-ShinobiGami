@@ -7,7 +7,7 @@
     "build": "tsc -t ES5 && cpx -C src/interoperability.yaml dist",
     "node-server": "node --es-module-specifier-resolution=node dist/server.js",
     "server": "npx ts-node src/server.ts",
-    "build-run": "tsc -t ES5 && cpx -C src/interoperability.yaml dist; node dist/server.js",
+    "build-run": "npm run build && npm run node-server",
     "minio-start": "minio server --address localhost:9000 /minio",
     "version-up-server-lib": "kill -9 $(lsof -t -i:8000) & ncu && ncu -u quoridorn-server-lib && npm install && npm run build && npm run node-server"
   },
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/HillTopTRPG/quoridorn-server#readme",
   "dependencies": {
-    "quoridorn-server-lib": "0.0.71",
+    "quoridorn-server-lib": "0.0.72",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
